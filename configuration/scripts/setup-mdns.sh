@@ -1,6 +1,6 @@
 #!/bin/bash
 
-bridge_nic="br0"
+bridge_nic="br_lan"
 mac=$(ip addr show $bridge_nic | awk '/ether/ {print $2}' | awk -F: '{print $(NF-1)$NF}')
 echo "MAC address of $bridge_nic: $mac"
 
