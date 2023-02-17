@@ -15,6 +15,6 @@ if [ ! -f "/etc/systemd/system/ncd-avahi.service" ]; then
     sudo sh -c "echo '[Unit]' > /etc/systemd/system/ncd-avahi.service && echo 'Description=NCD Avahi Util' >> /etc/systemd/system/ncd-avahi.service && echo '' >> /etc/systemd/system/ncd-avahi.service && echo '[Service]' >> /etc/systemd/system/ncd-avahi.service && echo 'ExecStart=/bin/ncd-mdns' >> /etc/systemd/system/ncd-avahi.service && echo '' >> /etc/systemd/system/ncd-avahi.service && echo '[Install]' >> /etc/systemd/system/ncd-avahi.service && echo 'WantedBy=multi-user.target' >> /etc/systemd/system/ncd-avahi.service"
 fi
 
-sudo daemon-reload
+sudo systemctl daemon-reload
 sudo systemctl enable ncd-avahi
 sudo systemctl start ncd-avahi
