@@ -1,0 +1,25 @@
+version: "3.9"
+services:
+  ncd-red-docker:
+    image: "iojacob/ncd-red-docker"
+    restart: unless-stopped
+    ports:
+      - "1880:1880"
+    volumes:
+      - type: volume
+        source: node_red_data
+        target: /data
+    devices:
+      - "/dev/ttymxc2:/dev/ttyUSB0"
+    group_add:
+      - "dialout"
+#    healthcheck:
+#      test: ["CMD", "curl", -f, "http://localhost:1880"]
+#      interval: 1m
+#      timeout: 10s
+#      retries: 3
+#      start_period: 1m
+    #privileged: true
+
+volumes:
+  node_red_data:
