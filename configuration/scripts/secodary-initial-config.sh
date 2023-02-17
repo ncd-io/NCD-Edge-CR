@@ -1,4 +1,7 @@
 #!/bin/bash
 
-sudo ./setup-mdns.sh
-./start-docker.sh
+sudo apt update
+sudo apt-get install -y avahi-utils
+sudo apt-get install -y nano
+
+sudo bash ./setup-mdns.sh
