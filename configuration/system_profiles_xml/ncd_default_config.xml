@@ -62,9 +62,9 @@
       <id type="int" desc="Index" range="1..2">1</id>
       <card type="enum" desc="SIM Card" range="sim1 sim2">sim1</card>
       <auto_apn type="bool" desc="Automatic APN Selection" default="true">true</auto_apn>
-      <apn desc="APN" default="internet"></apn>
+      <apn desc="APN" default="internet">?rbtconf?U2FsdGVkX1+ZUj3VwykFsGWd7U1vXNcduXv/6d8eiRY=</apn>
       <username desc="Username"></username>
-      <password desc="Password"></password>
+      <password desc="Password">?rbtconf?U2FsdGVkX1+nAg2rGIWl5Ow4u5XovstYUGyuaGO8XQo=</password>
       <auth_type type="enum" desc="Authentication Type" range="none chap pap" default="none">none</auth_type>
       <phone_number type="PHONE_NUM" desc="Phone Number"></phone_number>
       <pin_code type="regex" desc="PIN Code" pattern="^[0-9]{4,8}$"></pin_code>
@@ -166,15 +166,16 @@
       <verbose_debug_enable type="bool" desc="Verbose Debug Enable" default="false">false</verbose_debug_enable>
       <dongle_model type="bool" desc="Dongle Model Enable" default="true">true</dongle_model>
       <rssi_quality type="int" desc="RSSI Threshold" range="-110..-47" default="-87">-87</rssi_quality>
+      <rsrp_quality type="int" desc="RSRP Threshold" range="-140..-44" default="-105">-105</rsrp_quality>
       <creg_timeout type="int" desc="Timeout For Network Registration" range="0..360" default="0">0</creg_timeout>
     </sim>
     <sim max_entry_num="2">
       <id type="int" desc="Index" range="1..2">2</id>
       <card type="enum" desc="SIM Card" range="sim1 sim2">sim2</card>
       <auto_apn type="bool" desc="Automatic APN Selection" default="true">true</auto_apn>
-      <apn desc="APN" default="internet">internet</apn>
+      <apn desc="APN" default="internet">?rbtconf?U2FsdGVkX1/CcTnw17G9kgo9GLvMJ7A982UoJm4n1b0=</apn>
       <username desc="Username"></username>
-      <password desc="Password"></password>
+      <password desc="Password">?rbtconf?U2FsdGVkX1/iUA83dVV5uVUyQl83oajlcMgWptJKKn0=</password>
       <auth_type type="enum" desc="Authentication Type" range="none chap pap" default="none">none</auth_type>
       <phone_number type="PHONE_NUM" desc="Phone Number"></phone_number>
       <pin_code type="regex" desc="PIN Code" pattern="^[0-9]{4,8}$"></pin_code>
@@ -276,6 +277,7 @@
       <verbose_debug_enable type="bool" desc="Verbose Debug Enable" default="false">false</verbose_debug_enable>
       <dongle_model type="bool" desc="Dongle Model Enable" default="true">true</dongle_model>
       <rssi_quality type="int" desc="RSSI Threshold" range="-110..-47" default="-87">-87</rssi_quality>
+      <rsrp_quality type="int" desc="RSRP Threshold" range="-140..-44" default="-105">-105</rsrp_quality>
       <creg_timeout type="int" desc="Timeout For Network Registration" range="0..360" default="0">0</creg_timeout>
     </sim>
   </cellular>
@@ -370,7 +372,7 @@
     <timeout type="int" desc="Timeout" range="10..29" default="10">10</timeout>
     <auth_login type="bool" desc="Auth Login" default="false">false</auth_login>
     <username desc="Username"></username>
-    <password desc="Password"></password>
+    <password desc="Password">?rbtconf?U2FsdGVkX1/0Nz+lKeKGGK9lvViGyS7Qftl8R+EtUeE=</password>
     <from desc="From"></from>
     <subject desc="Subject"></subject>
   </email>
@@ -379,7 +381,7 @@
       <id type="int" desc="Index" range="1..5">1</id>
       <name type="regex" desc="Name" pattern="^[a-zA-Z0-9_.@][a-zA-Z0-9_.@-]{2,31}$">port1</name>
       <port type="enum" desc="Port" range="eth0 eth1 eth2 eth3 eth4">eth0</port>
-      <port_speed type="enum" desc="Port Speed" range="auto 10h 10f 100h 100f" default="auto">auto</port_speed>
+      <port_speed type="enum" desc="Port Speed" range="auto 10h 10f 100h 100f 1000f" default="auto">auto</port_speed>
       <mtu type="int" desc="MTU" range="1280..1500" default="1500">1500</mtu>
       <mac type="MAC_NON_MULTICAST_ADDR" desc="MAC"></mac>
     </port_setting>
@@ -387,7 +389,7 @@
       <id type="int" desc="Index" range="1..5">2</id>
       <name type="regex" desc="Name" pattern="^[a-zA-Z0-9_.@][a-zA-Z0-9_.@-]{2,31}$">port2</name>
       <port type="enum" desc="Port" range="eth0 eth1 eth2 eth3 eth4">eth1</port>
-      <port_speed type="enum" desc="Port Speed" range="auto 10h 10f 100h 100f" default="auto">auto</port_speed>
+      <port_speed type="enum" desc="Port Speed" range="auto 10h 10f 100h 100f 1000f" default="auto">auto</port_speed>
       <mtu type="int" desc="MTU" range="1280..1500" default="1500">1500</mtu>
       <mac type="MAC_NON_MULTICAST_ADDR" desc="MAC"></mac>
     </port_setting>
@@ -403,7 +405,7 @@
       <send_email type="bool" desc="Send Email" default="false"/>
       <email_addresses desc="Email Addresses"/>
       <do_control type="bool" desc="DO Control" default="false"/>
-      <do_index type="enum" desc="DO Index" range="0 1 2" default="1"/>
+      <do_index type="enum" desc="DO Index" range="0 3 4" default="3"/>
       <do_level type="enum" desc="DO Level" range="high low" default="high"/>
       <save_to_nvm type="bool" desc="Save to NVM" default="false"/>
       <system_startup type="bool" desc="System Startup" default="false"/>
@@ -585,7 +587,7 @@
       <forceencaps_enable type="bool" desc="Enable Forceencaps" default="false"/>
       <backup_gateway desc="Backup Gateway"/>
       <expert desc="Expert Options"/>
-      <encrypt_algorithm type="enum" desc="Encryption Algorithm" range="3des aes128 aes192 aes256 aes128gcm8 aes192gcm8 aes256gcm8 aes128gcm12 aes192gcm12 aes256gcm12 aes128gcm16 aes192gcm16 aes256gcm16" default="3des"/>
+      <encrypt_algorithm type="enum" desc="Encryption Algorithm" range="3des aes128 aes192 aes256" default="3des"/>
       <auth_algorithm type="enum" desc="Authentication Algorithm" range="md5 sha1 sha2_256 sha2_384 sha2_512" default="sha1"/>
       <dh_group type="enum" desc="IKE DH Group" range="modp768 modp1024 modp1536 modp2048 modp3072 modp4096 modp6144 modp8192" default="modp1024"/>
       <auth_type type="enum" desc="Authentication Type" range="psk ca pkcs12 xauth_psk xauth_ca" default="psk"/>
@@ -615,11 +617,11 @@
     <usr_led type="bool" desc="Enable User LED" default="false">false</usr_led>
     <server_enable type="bool" desc="Enable L2TP Server" default="false">false</server_enable>
     <server_username desc="Username"></server_username>
-    <server_password desc="Password"></server_password>
+    <server_password desc="Password">?rbtconf?U2FsdGVkX1+yZ8nuoaUoxZo6gKsgmr90YK9saOnL0A0=</server_password>
     <server_local_ip type="IP_ADDR" desc="Local IP"></server_local_ip>
     <server_start_ip type="IP_ADDR" desc="Start IP"></server_start_ip>
     <server_end_ip type="IP_ADDR" desc="End IP"></server_end_ip>
-    <server_secrets desc="Tunnel Secrets"></server_secrets>
+    <server_secrets desc="Tunnel Secrets">?rbtconf?U2FsdGVkX19rzGeXeBwNNAd6kTG1m/OJzYErkMMaeGE=</server_secrets>
     <server_auth_type type="enum" desc="Authentication" range="pap chap mschap_v1 mschap_v2" default="pap">pap</server_auth_type>
     <server_port type="int" desc="Port" range="1..65535" default="1701">1701</server_port>
     <server_nat_enable type="bool" desc="Enable NAT" default="true">true</server_nat_enable>
@@ -632,7 +634,7 @@
       <remote_subnet_mask type="NETMASK" desc="Remote Subnet Mask"/>
       <client_ip type="IP_ADDR" desc="Client IP"/>
     </route_list>
-    <tunnel max_entry_num="3">
+    <tunnel max_entry_num="6">
       <id type="int" desc="Index" range="1..3"/>
       <enable type="bool" desc="Enable" default="true"/>
       <desc desc="Description"/>
@@ -680,7 +682,7 @@
     </link>
   </lan_links>
   <ntp>
-    <timezone type="enum" desc="Time Zone" range="Africa0Abidjan Africa0Accra Africa0Addis_Ababa Africa0Algiers Africa0Asmara Africa0Bamako Africa0Bangui Africa0Banjul Africa0Bissau Africa0Blantyre Africa0Brazzaville Africa0Bujumbura Africa0Cairo Africa0Casablanca Africa0Ceuta Africa0Conakry Africa0Dakar Africa0Dar_es_Salaam Africa0Djibouti Africa0Douala Africa0El_Aaiun Africa0Freetown Africa0Gaborone Africa0Harare Africa0Johannesburg Africa0Juba Africa0Kampala Africa0Khartoum Africa0Kigali Africa0Kinshasa Africa0Lagos Africa0Libreville Africa0Lome Africa0Luanda Africa0Lubumbashi Africa0Lusaka Africa0Malabo Africa0Maputo Africa0Maseru Africa0Mbabane Africa0Mogadishu Africa0Monrovia Africa0Nairobi Africa0Ndjamena Africa0Niamey Africa0Nouakchott Africa0Ouagadougou Africa0Porto-Novo Africa0Sao_Tome Africa0Tripoli Africa0Tunis Africa0Windhoek America0Adak America0Anchorage America0Anguilla America0Antigua America0Araguaina America0Argentina0Buenos_Aires America0Argentina0Catamarca America0Argentina0Cordoba America0Argentina0Jujuy America0Argentina0La_Rioja America0Argentina0Mendoza America0Argentina0Rio_Gallegos America0Argentina0Salta America0Argentina0San_Juan America0Argentina0San_Luis America0Argentina0Tucuman America0Argentina0Ushuaia America0Aruba America0Asuncion America0Atikokan America0Bahia America0Bahia_Banderas America0Barbados America0Belem America0Belize America0Blanc-Sablon America0Boa_Vista America0Bogota America0Boise America0Cambridge_Bay America0Campo_Grande America0Cancun America0Caracas America0Cayenne America0Cayman America0Chicago America0Chihuahua America0Costa_Rica America0Creston America0Cuiaba America0Curacao America0Danmarkshavn America0Dawson America0Dawson_Creek America0Denver America0Detroit America0Dominica America0Edmonton America0Eirunepe America0El_Salvador America0Fort_Nelson America0Fortaleza America0Glace_Bay America0Goose_Bay America0Grand_Turk America0Grenada America0Guadeloupe America0Guatemala America0Guayaquil America0Guyana America0Halifax America0Havana America0Hermosillo America0Indiana0Indianapolis America0Indiana0Knox America0Indiana0Marengo America0Indiana0Petersburg America0Indiana0Tell_City America0Indiana0Vevay America0Indiana0Vincennes America0Indiana0Winamac America0Inuvik America0Iqaluit America0Jamaica America0Juneau America0Kentucky0Louisville America0Kentucky0Monticello America0Kralendijk America0La_Paz America0Lima America0Los_Angeles America0Lower_Princes America0Maceio America0Managua America0Manaus America0Marigot America0Martinique America0Matamoros America0Mazatlan America0Menominee America0Merida America0Metlakatla America0Mexico_City America0Miquelon America0Moncton America0Monterrey America0Montevideo America0Montserrat America0Nassau America0New_York America0Nipigon America0Nome America0Noronha America0North_Dakota0Beulah America0North_Dakota0Center America0North_Dakota0New_Salem America0Nuuk America0Ojinaga America0Panama America0Pangnirtung America0Paramaribo America0Phoenix America0Port-au-Prince America0Port_of_Spain America0Porto_Velho America0Puerto_Rico America0Punta_Arenas America0Rainy_River America0Rankin_Inlet America0Recife America0Regina America0Resolute America0Rio_Branco America0Santarem America0Santiago America0Santo_Domingo America0Sao_Paulo America0Scoresbysund America0Sitka America0St_Barthelemy America0St_Johns America0St_Kitts America0St_Lucia America0St_Thomas America0St_Vincent America0Swift_Current America0Tegucigalpa America0Thule America0Thunder_Bay America0Tijuana America0Toronto America0Tortola America0Vancouver America0Whitehorse America0Winnipeg America0Yakutat America0Yellowknife Antarctica0Casey Antarctica0Davis Antarctica0DumontDUrville Antarctica0Macquarie Antarctica0Mawson Antarctica0McMurdo Antarctica0Palmer Antarctica0Rothera Antarctica0Syowa Antarctica0Troll Antarctica0Vostok Arctic0Longyearbyen Asia0Aden Asia0Almaty Asia0Amman Asia0Anadyr Asia0Aqtau Asia0Aqtobe Asia0Ashgabat Asia0Atyrau Asia0Baghdad Asia0Bahrain Asia0Baku Asia0Bangkok Asia0Barnaul Asia0Beirut Asia0Bishkek Asia0Brunei Asia0Chita Asia0Choibalsan Asia0Colombo Asia0Damascus Asia0Dhaka Asia0Dili Asia0Dubai Asia0Dushanbe Asia0Famagusta Asia0Gaza Asia0Hebron Asia0Ho_Chi_Minh Asia0Hong_Kong Asia0Hovd Asia0Irkutsk Asia0Jakarta Asia0Jayapura Asia0Jerusalem Asia0Kabul Asia0Kamchatka Asia0Karachi Asia0Kathmandu Asia0Khandyga Asia0Kolkata Asia0Krasnoyarsk Asia0Kuala_Lumpur Asia0Kuching Asia0Kuwait Asia0Macau Asia0Magadan Asia0Makassar Asia0Manila Asia0Muscat Asia0Nicosia Asia0Novokuznetsk Asia0Novosibirsk Asia0Omsk Asia0Oral Asia0Phnom_Penh Asia0Pontianak Asia0Pyongyang Asia0Qatar Asia0Qostanay Asia0Qyzylorda Asia0Riyadh Asia0Sakhalin Asia0Samarkand Asia0Seoul Asia0Shanghai Asia0Singapore Asia0Srednekolymsk Asia0Taipei Asia0Tashkent Asia0Tbilisi Asia0Tehran Asia0Thimphu Asia0Tokyo Asia0Tomsk Asia0Ulaanbaatar Asia0Urumqi Asia0Ust-Nera Asia0Vientiane Asia0Vladivostok Asia0Yakutsk Asia0Yangon Asia0Yekaterinburg Asia0Yerevan Atlantic0Azores Atlantic0Bermuda Atlantic0Canary Atlantic0Cape_Verde Atlantic0Faroe Atlantic0Madeira Atlantic0Reykjavik Atlantic0South_Georgia Atlantic0St_Helena Atlantic0Stanley Australia0Adelaide Australia0Brisbane Australia0Broken_Hill Australia0Currie Australia0Darwin Australia0Eucla Australia0Hobart Australia0Lindeman Australia0Lord_Howe Australia0Melbourne Australia0Perth Australia0Sydney Europe0Amsterdam Europe0Andorra Europe0Astrakhan Europe0Athens Europe0Belgrade Europe0Berlin Europe0Bratislava Europe0Brussels Europe0Bucharest Europe0Budapest Europe0Busingen Europe0Chisinau Europe0Copenhagen Europe0Dublin Europe0Gibraltar Europe0Guernsey Europe0Helsinki Europe0Isle_of_Man Europe0Istanbul Europe0Jersey Europe0Kaliningrad Europe0Kiev Europe0Kirov Europe0Lisbon Europe0Ljubljana Europe0London Europe0Luxembourg Europe0Madrid Europe0Malta Europe0Mariehamn Europe0Minsk Europe0Monaco Europe0Moscow Europe0Oslo Europe0Paris Europe0Podgorica Europe0Prague Europe0Riga Europe0Rome Europe0Samara Europe0San_Marino Europe0Sarajevo Europe0Saratov Europe0Simferopol Europe0Skopje Europe0Sofia Europe0Stockholm Europe0Tallinn Europe0Tirane Europe0Ulyanovsk Europe0Uzhgorod Europe0Vaduz Europe0Vatican Europe0Vienna Europe0Vilnius Europe0Volgograd Europe0Warsaw Europe0Zagreb Europe0Zaporozhye Europe0Zurich Indian0Antananarivo Indian0Chagos Indian0Christmas Indian0Cocos Indian0Comoro Indian0Kerguelen Indian0Mahe Indian0Maldives Indian0Mauritius Indian0Mayotte Indian0Reunion Pacific0Apia Pacific0Auckland Pacific0Bougainville Pacific0Chatham Pacific0Chuuk Pacific0Easter Pacific0Efate Pacific0Enderbury Pacific0Fakaofo Pacific0Fiji Pacific0Funafuti Pacific0Galapagos Pacific0Gambier Pacific0Guadalcanal Pacific0Guam Pacific0Honolulu Pacific0Kiritimati Pacific0Kosrae Pacific0Kwajalein Pacific0Majuro Pacific0Marquesas Pacific0Midway Pacific0Nauru Pacific0Niue Pacific0Norfolk Pacific0Noumea Pacific0Pago_Pago Pacific0Palau Pacific0Pitcairn Pacific0Pohnpei Pacific0Port_Moresby Pacific0Rarotonga Pacific0Saipan Pacific0Tahiti Pacific0Tarawa Pacific0Tongatapu Pacific0Wake Pacific0Wallis" default="Asia0Shanghai">Asia0Shanghai</timezone>
+    <timezone type="enum" desc="Time Zone" range="Africa0Abidjan Africa0Accra Africa0Addis_Ababa Africa0Algiers Africa0Asmara Africa0Bamako Africa0Bangui Africa0Banjul Africa0Bissau Africa0Blantyre Africa0Brazzaville Africa0Bujumbura Africa0Cairo Africa0Casablanca Africa0Ceuta Africa0Conakry Africa0Dakar Africa0Dar_es_Salaam Africa0Djibouti Africa0Douala Africa0El_Aaiun Africa0Freetown Africa0Gaborone Africa0Harare Africa0Johannesburg Africa0Juba Africa0Kampala Africa0Khartoum Africa0Kigali Africa0Kinshasa Africa0Lagos Africa0Libreville Africa0Lome Africa0Luanda Africa0Lubumbashi Africa0Lusaka Africa0Malabo Africa0Maputo Africa0Maseru Africa0Mbabane Africa0Mogadishu Africa0Monrovia Africa0Nairobi Africa0Ndjamena Africa0Niamey Africa0Nouakchott Africa0Ouagadougou Africa0Porto-Novo Africa0Sao_Tome Africa0Tripoli Africa0Tunis Africa0Windhoek America0Adak America0Anchorage America0Anguilla America0Antigua America0Araguaina America0Argentina0Buenos_Aires America0Argentina0Catamarca America0Argentina0Cordoba America0Argentina0Jujuy America0Argentina0La_Rioja America0Argentina0Mendoza America0Argentina0Rio_Gallegos America0Argentina0Salta America0Argentina0San_Juan America0Argentina0San_Luis America0Argentina0Tucuman America0Argentina0Ushuaia America0Aruba America0Asuncion America0Atikokan America0Bahia America0Bahia_Banderas America0Barbados America0Belem America0Belize America0Blanc-Sablon America0Boa_Vista America0Bogota America0Boise America0Cambridge_Bay America0Campo_Grande America0Cancun America0Caracas America0Cayenne America0Cayman America0Chicago America0Chihuahua America0Costa_Rica America0Creston America0Cuiaba America0Curacao America0Danmarkshavn America0Dawson America0Dawson_Creek America0Denver America0Detroit America0Dominica America0Edmonton America0Eirunepe America0El_Salvador America0Fort_Nelson America0Fortaleza America0Glace_Bay America0Goose_Bay America0Grand_Turk America0Grenada America0Guadeloupe America0Guatemala America0Guayaquil America0Guyana America0Halifax America0Havana America0Hermosillo America0Indiana0Indianapolis America0Indiana0Knox America0Indiana0Marengo America0Indiana0Petersburg America0Indiana0Tell_City America0Indiana0Vevay America0Indiana0Vincennes America0Indiana0Winamac America0Inuvik America0Iqaluit America0Jamaica America0Juneau America0Kentucky0Louisville America0Kentucky0Monticello America0Kralendijk America0La_Paz America0Lima America0Los_Angeles America0Lower_Princes America0Maceio America0Managua America0Manaus America0Marigot America0Martinique America0Matamoros America0Mazatlan America0Menominee America0Merida America0Metlakatla America0Mexico_City America0Miquelon America0Moncton America0Monterrey America0Montevideo America0Montserrat America0Nassau America0New_York America0Nipigon America0Nome America0Noronha America0North_Dakota0Beulah America0North_Dakota0Center America0North_Dakota0New_Salem America0Nuuk America0Ojinaga America0Panama America0Pangnirtung America0Paramaribo America0Phoenix America0Port-au-Prince America0Port_of_Spain America0Porto_Velho America0Puerto_Rico America0Punta_Arenas America0Rainy_River America0Rankin_Inlet America0Recife America0Regina America0Resolute America0Rio_Branco America0Santarem America0Santiago America0Santo_Domingo America0Sao_Paulo America0Scoresbysund America0Sitka America0St_Barthelemy America0St_Johns America0St_Kitts America0St_Lucia America0St_Thomas America0St_Vincent America0Swift_Current America0Tegucigalpa America0Thule America0Thunder_Bay America0Tijuana America0Toronto America0Tortola America0Vancouver America0Whitehorse America0Winnipeg America0Yakutat America0Yellowknife Antarctica0Casey Antarctica0Davis Antarctica0DumontDUrville Antarctica0Macquarie Antarctica0Mawson Antarctica0McMurdo Antarctica0Palmer Antarctica0Rothera Antarctica0Syowa Antarctica0Troll Antarctica0Vostok Arctic0Longyearbyen Asia0Aden Asia0Almaty Asia0Amman Asia0Anadyr Asia0Aqtau Asia0Aqtobe Asia0Ashgabat Asia0Atyrau Asia0Baghdad Asia0Bahrain Asia0Baku Asia0Bangkok Asia0Barnaul Asia0Beirut Asia0Bishkek Asia0Brunei Asia0Chita Asia0Choibalsan Asia0Colombo Asia0Damascus Asia0Dhaka Asia0Dili Asia0Dubai Asia0Dushanbe Asia0Famagusta Asia0Gaza Asia0Hebron Asia0Ho_Chi_Minh Asia0Hong_Kong Asia0Hovd Asia0Irkutsk Asia0Jakarta Asia0Jayapura Asia0Jerusalem Asia0Kabul Asia0Kamchatka Asia0Karachi Asia0Kathmandu Asia0Khandyga Asia0Kolkata Asia0Krasnoyarsk Asia0Kuala_Lumpur Asia0Kuching Asia0Kuwait Asia0Macau Asia0Magadan Asia0Makassar Asia0Manila Asia0Muscat Asia0Nicosia Asia0Novokuznetsk Asia0Novosibirsk Asia0Omsk Asia0Oral Asia0Phnom_Penh Asia0Pontianak Asia0Pyongyang Asia0Qatar Asia0Qostanay Asia0Qyzylorda Asia0Riyadh Asia0Sakhalin Asia0Samarkand Asia0Seoul Asia0Shanghai Asia0Singapore Asia0Srednekolymsk Asia0Taipei Asia0Tashkent Asia0Tbilisi Asia0Tehran Asia0Thimphu Asia0Tokyo Asia0Tomsk Asia0Ulaanbaatar Asia0Urumqi Asia0Ust-Nera Asia0Vientiane Asia0Vladivostok Asia0Yakutsk Asia0Yangon Asia0Yekaterinburg Asia0Yerevan Atlantic0Azores Atlantic0Bermuda Atlantic0Canary Atlantic0Cape_Verde Atlantic0Faroe Atlantic0Madeira Atlantic0Reykjavik Atlantic0South_Georgia Atlantic0St_Helena Atlantic0Stanley Australia0Adelaide Australia0Brisbane Australia0Broken_Hill Australia0Currie Australia0Darwin Australia0Eucla Australia0Hobart Australia0Lindeman Australia0Lord_Howe Australia0Melbourne Australia0Perth Australia0Sydney Europe0Amsterdam Europe0Andorra Europe0Astrakhan Europe0Athens Europe0Belgrade Europe0Berlin Europe0Bratislava Europe0Brussels Europe0Bucharest Europe0Budapest Europe0Busingen Europe0Chisinau Europe0Copenhagen Europe0Dublin Europe0Gibraltar Europe0Guernsey Europe0Helsinki Europe0Isle_of_Man Europe0Istanbul Europe0Jersey Europe0Kaliningrad Europe0Kiev Europe0Kirov Europe0Lisbon Europe0Ljubljana Europe0London Europe0Luxembourg Europe0Madrid Europe0Malta Europe0Mariehamn Europe0Minsk Europe0Monaco Europe0Moscow Europe0Oslo Europe0Paris Europe0Podgorica Europe0Prague Europe0Riga Europe0Rome Europe0Samara Europe0San_Marino Europe0Sarajevo Europe0Saratov Europe0Simferopol Europe0Skopje Europe0Sofia Europe0Stockholm Europe0Tallinn Europe0Tirane Europe0Ulyanovsk Europe0Uzhgorod Europe0Vaduz Europe0Vatican Europe0Vienna Europe0Vilnius Europe0Volgograd Europe0Warsaw Europe0Zagreb Europe0Zaporozhye Europe0Zurich Indian0Antananarivo Indian0Chagos Indian0Christmas Indian0Cocos Indian0Comoro Indian0Kerguelen Indian0Mahe Indian0Maldives Indian0Mauritius Indian0Mayotte Indian0Reunion Pacific0Apia Pacific0Auckland Pacific0Bougainville Pacific0Chatham Pacific0Chuuk Pacific0Easter Pacific0Efate Pacific0Enderbury Pacific0Fakaofo Pacific0Fiji Pacific0Funafuti Pacific0Galapagos Pacific0Gambier Pacific0Guadalcanal Pacific0Guam Pacific0Honolulu Pacific0Kiritimati Pacific0Kosrae Pacific0Kwajalein Pacific0Majuro Pacific0Marquesas Pacific0Midway Pacific0Nauru Pacific0Niue Pacific0Norfolk Pacific0Noumea Pacific0Pago_Pago Pacific0Palau Pacific0Pitcairn Pacific0Pohnpei Pacific0Port_Moresby Pacific0Rarotonga Pacific0Saipan Pacific0Tahiti Pacific0Tarawa Pacific0Tongatapu Pacific0Wake Pacific0Wallis" default="Asia0Shanghai">Europe0London</timezone>
     <client_enable type="bool" desc="Enable" default="true">true</client_enable>
     <primary_server desc="Primary NTP Server" default="pool.ntp.org">pool.ntp.org</primary_server>
     <secondary_server desc="Secondary NTP Server"></secondary_server>
@@ -691,7 +693,7 @@
     <usr_led type="bool" desc="Enable User LED" default="false">false</usr_led>
     <server_enable type="bool" desc="Enable PPTP Server" default="false">false</server_enable>
     <server_username desc="Username"></server_username>
-    <server_password desc="Password"></server_password>
+    <server_password desc="Password">?rbtconf?U2FsdGVkX1/LOEqGz/0/GBHqZlZlFvbr/iPLTpP0fVQ=</server_password>
     <server_local_ip type="IP_ADDR" desc="Local IP"></server_local_ip>
     <server_start_ip type="IP_ADDR" desc="Start IP"></server_start_ip>
     <server_end_ip type="IP_ADDR" desc="End IP"></server_end_ip>
@@ -908,8 +910,8 @@
     <remote_port type="int" desc="Remote Port" range="1..65535" default="514">514</remote_port>
   </syslog>
   <system>
-    <device_name type="regex" desc="Device Name" default="router" pattern="^[a-zA-Z0-9\.\-]+$">NCD-Edge-8e1f</device_name>
-    <usr_led_type type="enum" desc="User LED Type" range="none sim net gps wifi openvpn robustvpn ipsec lora" default="none">none</usr_led_type>
+    <device_name type="regex" desc="Device Name" default="router" pattern="^[a-zA-Z0-9\.\-]+$">NCD-Edge-last-four-of-mac</device_name>
+    <usr_led_type type="enum" desc="User LED Type" range="none sim net gps wifi openvpn robustvpn ipsec lora pptp l2tp" default="none">none</usr_led_type>
   </system>
   <usb>
     <enable type="bool" desc="Enable USB" default="true">true</enable>
@@ -977,7 +979,7 @@
       <interface_vlan type="enum" desc="Interface" range=""></interface_vlan>
       <interface_wifi type="enum" desc="Interface" range="">wlan0</interface_wifi>
       <wifi_ssid desc="SSID" range="1..32" default="router">router</wifi_ssid>
-      <wifi_password desc="Password" range="8..63"></wifi_password>
+      <wifi_password desc="Password" range="8..63">?rbtconf?U2FsdGVkX1+PwqrY8nz6d4KLppueIUeR3MtDNivQE2g=</wifi_password>
       <desc desc="Description">ETH0 will act as a client</desc>
       <weight type="int" desc="Weight" range="0..10" default="0">0</weight>
       <firewall_zone type="enum" desc="Firewall Zone" range="" default="external">internal</firewall_zone>
@@ -986,7 +988,7 @@
         <address type="IP_ADDR_AND_SUBNET_LEN" desc="IPv4 Address"></address>
         <gateway type="IP_ADDR" desc="IPv4 Gateway"></gateway>
         <pppoe_username desc="IPv4 PPPoE Username"></pppoe_username>
-        <pppoe_password desc="IPv4 PPPoE Password"></pppoe_password>
+        <pppoe_password desc="IPv4 PPPoE Password">?rbtconf?U2FsdGVkX19yhZ+iLpvZ3aVYTgEFuAEx08MjLS1n7+0=</pppoe_password>
         <dns1 type="IP_ADDR" desc="IPv4 Primary DNS"></dns1>
         <dns2 type="IP_ADDR" desc="IPv4 Secondary DNS"></dns2>
       </ipv4>
@@ -1040,16 +1042,16 @@
       <enable type="bool" desc="Enable" default="false">true</enable>
       <bridge type="enum" desc="Interface" range="" default="br_lan">br_lan</bridge>
       <broadcast_ssid type="bool" desc="Broadcast SSID" default="true">true</broadcast_ssid>
-      <ssid desc="SSID" range="3..32" default="router">NCD_Edge_8e1f</ssid>
+      <ssid desc="SSID" range="3..32" default="router">NCD_Edge_last-four-of-mac</ssid>
       <security_mode type="enum" desc="Security Mode" range="disabled wpa_personal wpa_enterprise" default="disabled">wpa_personal</security_mode>
       <wpa_version type="enum" desc="WPA Version" range="auto wpa wpa2" default="auto">auto</wpa_version>
       <encryption type="enum" desc="Encryption" range="auto aes" default="auto">auto</encryption>
-      <psk_password desc="PSK Password" range="8..63">ncdGateway</psk_password>
+      <psk_password desc="PSK Password" range="8..63">?rbtconf?U2FsdGVkX1+qd3j1LckjOhT/TK/rjC64xEoz62tmZz4=</psk_password>
       <auth_server_addr type="IP_ADDR" desc="Radius Authentication Server Address"></auth_server_addr>
       <auth_server_port type="NET_PORT" desc="Radius Authentication Server Port" default="1812">1812</auth_server_port>
-      <auth_server_secret desc="Radius Server Share Secret" range="8..128"></auth_server_secret>
+      <auth_server_secret desc="Radius Server Share Secret" range="8..128">?rbtconf?U2FsdGVkX1++Q34mhKqm7JWQ7wlHz5SlVuoOln3IJb4=</auth_server_secret>
       <key_update_interval type="int" desc="Group Key Update Interval" range="30..86400" default="3600">3600</key_update_interval>
-      <wep_secret type="regex" desc="WEP Key" pattern="^([0-9a-fA-F]{10}|[0-9a-fA-F]{26})?$"></wep_secret>
+      <wep_secret type="regex" desc="WEP Key" pattern="^([0-9a-fA-F]{10}|[0-9a-fA-F]{26})?$">?rbtconf?U2FsdGVkX18TgSH6Mjq7m8HgdqSH265gx5xbQCsOEBU=</wep_secret>
       <max_station_num type="int" desc="Max Associated Stations" range="1..128" default="64">64</max_station_num>
       <ap_isolation_enable type="bool" desc="Enable AP Isolation" default="false">false</ap_isolation_enable>
       <debug_level type="enum" desc="Debug Level" range="verbose debug info notice warning none" default="none">none</debug_level>
