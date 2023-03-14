@@ -8,3 +8,4 @@ sudo npm install -g --unsafe-perm node-red${version}
 cd ~/.node-red
 npm install ncd-red-wireless-2
 npm install node-red-dashboard
+# sudo reboot
