@@ -7,6 +7,8 @@ if [ -z "$nodeRedCommand" ]; then
   exit 1
 fi
 
+sudo npm install -g pm2
+
 pm2 start $nodeRedCommand -- -v
 pm2 save
 pm2 startup systemd
