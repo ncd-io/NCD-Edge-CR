@@ -1,20 +1,32 @@
 #!/bin/bash
 
+script_text='#!/bin/bash
+
 bridge_nic="br_lan"
-mac=$(ip addr show $bridge_nic | awk '/ether/ {print $2}' | awk -F: '{print $(NF-1)$NF}')
-echo "MAC address of $bridge_nic: $mac"
+mac=$(ip addr show $bridge_nic | awk '\''/ether/ {print $2}'\'' | awk -F: '\''{print $(NF-1)$NF}'\'')
 
-if [ ! -f "/bin/ncd-mdns" ]; then
-    sudo touch /bin/ncd-mdns
-    sudo sh -c "echo '#!/bin/bash' > /bin/ncd-mdns && echo 'avahi-set-host-name ncd-$mac' >> /bin/ncd-mdns && chmod +x /bin/ncd-mdns"
-fi
+avahi-set-host-name ncd-$mac'
 
-if [ ! -f "/etc/systemd/system/ncd-avahi.service" ]; then
-    sudo touch /etc/systemd/system/ncd-avahi.service
-    sudo chmod 775 /etc/systemd/system/ncd-avahi.service
-    sudo sh -c "echo '[Unit]' > /etc/systemd/system/ncd-avahi.service && echo 'Description=NCD Avahi Util' >> /etc/systemd/system/ncd-avahi.service && echo '' >> /etc/systemd/system/ncd-avahi.service && echo '[Service]' >> /etc/systemd/system/ncd-avahi.service && echo 'ExecStart=/bin/ncd-mdns' >> /etc/systemd/system/ncd-avahi.service && echo '' >> /etc/systemd/system/ncd-avahi.service && echo '[Install]' >> /etc/systemd/system/ncd-avahi.service && echo 'WantedBy=multi-user.target' >> /etc/systemd/system/ncd-avahi.service"
-fi
+service_text='[Unit]
+Description=NCD Avahi Util
+After=network-online.target
 
-sudo systemctl daemon-reload
-sudo systemctl enable ncd-avahi
-sudo systemctl start ncd-avahi
+[Service]
+ExecStart=/bin/ncd-mdns
+
+[Install]
+WantedBy=multi-user.target'
+
+ncd_mdns_path="/bin/ncd-mdns"
+ncd_avahi_service_path="/etc/systemd/system/ncd-avahi.service"
+
+# Create or overwrite /bin/ncd-mdns
+sudo touch "$ncd_mdns_path"
+echo "$script_text" | sudo tee "$ncd_mdns_path" > /dev/null
+sudo chmod +x "$ncd_mdns_path"
+echo "Script has been written to $ncd_mdns_path."
+
+# Create or overwrite /etc/systemd/system/ncd-avahi.service
+sudo touch "$ncd_avahi_service_path"
+echo "$service_text" | sudo tee "$ncd_avahi_service_path" > /dev/null
+echo "Service file has been written to $ncd_avahi_service_path."
