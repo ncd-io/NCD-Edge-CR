@@ -21,7 +21,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 140,
-        "y": 340,
+        "y": 380,
         "wires": [
             [
                 "71cb30aeb9b5584e"
@@ -41,10 +41,11 @@
         "oldrc": false,
         "name": "Fix it",
         "x": 330,
-        "y": 340,
+        "y": 380,
         "wires": [
             [
-                "871a41225714eb86"
+                "871a41225714eb86",
+                "55fafb375ff8d2bf"
             ],
             [
                 "871a41225714eb86"
@@ -67,7 +68,27 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 520,
-        "y": 340,
+        "y": 360,
         "wires": []
+    },
+    {
+        "id": "55fafb375ff8d2bf",
+        "type": "exec",
+        "z": "6da2847d026c37ef",
+        "command": "pm2 restart all",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 540,
+        "y": 420,
+        "wires": [
+            [],
+            [],
+            []
+        ]
     }
 ]
