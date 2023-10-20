@@ -1,0 +1,73 @@
+[
+    {
+        "id": "34b74d79d7a3d9ed",
+        "type": "inject",
+        "z": "6da2847d026c37ef",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 340,
+        "wires": [
+            [
+                "71cb30aeb9b5584e"
+            ]
+        ]
+    },
+    {
+        "id": "71cb30aeb9b5584e",
+        "type": "exec",
+        "z": "6da2847d026c37ef",
+        "command": "cd /home/ncdio/.node-red && npm uninstall @ncd-io/node-red-enterprise-sensors && rm -rf /home/ncdio/.node-red/node_modules/@ncd-io && npm install @ncd-io/node-red-enterprise-sensors",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Fix it",
+        "x": 330,
+        "y": 340,
+        "wires": [
+            [
+                "871a41225714eb86"
+            ],
+            [
+                "871a41225714eb86"
+            ],
+            [
+                "871a41225714eb86"
+            ]
+        ]
+    },
+    {
+        "id": "871a41225714eb86",
+        "type": "debug",
+        "z": "6da2847d026c37ef",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 340,
+        "wires": []
+    }
+]
