@@ -40,7 +40,7 @@
         "id": "71cb30aeb9b5584e",
         "type": "exec",
         "z": "2e0559afbcc88f52",
-        "command": "cd /home/ncdio/.node-red && npm uninstall @ncd-io/node-red-enterprise-sensors && rm -rf /home/ncdio/.node-red/node_modules/@ncd-io && npm install @ncd-io/node-red-enterprise-sensors && npm uninstall node-red-dashboard &&  && npm install node-red-dashboard",
+        "command": "cd /home/ncdio/.node-red && npm uninstall @ncd-io/node-red-enterprise-sensors && rm -rf /home/ncdio/.node-red/node_modules/@ncd-io && npm install @ncd-io/node-red-enterprise-sensors && npm uninstall node-red-dashboard && npm install node-red-dashboard",
         "addpay": "",
         "append": "",
         "useSpawn": "false",
