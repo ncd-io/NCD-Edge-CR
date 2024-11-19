@@ -1,8 +1,16 @@
 [
     {
+        "id": "2e0559afbcc88f52",
+        "type": "tab",
+        "label": "Library Fixer",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "34b74d79d7a3d9ed",
         "type": "inject",
-        "z": "6da2847d026c37ef",
+        "z": "2e0559afbcc88f52",
         "name": "",
         "props": [
             {
@@ -20,8 +28,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 140,
-        "y": 380,
+        "x": 120,
+        "y": 200,
         "wires": [
             [
                 "71cb30aeb9b5584e"
@@ -31,17 +39,17 @@
     {
         "id": "71cb30aeb9b5584e",
         "type": "exec",
-        "z": "6da2847d026c37ef",
-        "command": "cd /home/ncdio/.node-red && npm uninstall @ncd-io/node-red-enterprise-sensors && rm -rf /home/ncdio/.node-red/node_modules/@ncd-io && npm install @ncd-io/node-red-enterprise-sensors",
+        "z": "2e0559afbcc88f52",
+        "command": "cd /home/ncdio/.node-red && npm uninstall @ncd-io/node-red-enterprise-sensors && rm -rf /home/ncdio/.node-red/node_modules/@ncd-io && npm install @ncd-io/node-red-enterprise-sensors && npm uninstall node-red-dashboard &&  && npm install node-red-dashboard",
         "addpay": "",
         "append": "",
         "useSpawn": "false",
         "timer": "",
         "winHide": false,
         "oldrc": false,
-        "name": "Fix it",
-        "x": 330,
-        "y": 380,
+        "name": "Run Fix",
+        "x": 320,
+        "y": 200,
         "wires": [
             [
                 "871a41225714eb86",
@@ -58,7 +66,7 @@
     {
         "id": "871a41225714eb86",
         "type": "debug",
-        "z": "6da2847d026c37ef",
+        "z": "2e0559afbcc88f52",
         "name": "debug 4",
         "active": true,
         "tosidebar": true,
@@ -67,14 +75,14 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 520,
-        "y": 360,
+        "x": 500,
+        "y": 180,
         "wires": []
     },
     {
         "id": "55fafb375ff8d2bf",
         "type": "exec",
-        "z": "6da2847d026c37ef",
+        "z": "2e0559afbcc88f52",
         "command": "pm2 restart all",
         "addpay": "",
         "append": "",
@@ -83,8 +91,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "",
-        "x": 540,
-        "y": 420,
+        "x": 520,
+        "y": 240,
         "wires": [
             [],
             [],
