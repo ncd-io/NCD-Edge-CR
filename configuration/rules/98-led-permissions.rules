@@ -1,0 +1,5 @@
+ SUBSYSTEM=="leds", KERNEL=="do2", RUN+="/bin/chmod 666 /sys/class/leds/do2/trigger"
+ SUBSYSTEM=="leds", KERNEL=="do2", RUN+="/bin/chmod 666 /sys/class/leds/do2/brightness"
+
+ SUBSYSTEM=="leds", KERNEL=="do1", RUN+="/bin/chmod 666 /sys/class/leds/do1/trigger"
+ SUBSYSTEM=="leds", KERNEL=="do1", RUN+="/bin/chmod 666 /sys/class/leds/do1/brightness"
