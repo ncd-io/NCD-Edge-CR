@@ -1,54 +1,48 @@
 #!/bin/bash
 
-# Exit immediately if a command fails
+# Exit on error
 set -e
 
-# Error handling function
+# Error handler for support
 failure_handler() {
     echo -e "\n\033[0;31m##########################################################"
-    echo "❌ ERROR: The update failed at the last command."
-    echo "Please COPY the entire output of this terminal window"
-    echo "and email it to: support@ncd.io"
+    echo "❌ ERROR: The update failed."
+    echo "Please COPY the entire terminal output and send it to us at https://ncd.io/contact-us/:"
     echo -e "##########################################################\033[0m\n"
 }
-
 trap 'failure_handler' ERR
 
-echo "🚀 Starting Gateway Update & Cleanup..."
+echo "🚀 Starting Gateway Update as user: $(whoami)"
 
-# 1. Update Node.js to v20 (LTS)
-echo "📦 Updating Node.js..."
+# 1. System Updates (Require sudo)
+echo "📦 Updating Node.js to v20..."
 sudo n 20
+sudo n prune
 hash -r
 
-# 2. PRUNE - Remove old cached versions to save disk space
-echo "🧹 Pruning old Node.js versions..."
-sudo n prune
-
-# 3. Update npm and clean its cache
-echo " Updating npm..."
+echo "🛠️ Updating npm and Node-RED binaries..."
 sudo npm install -g npm@latest
+sudo npm install -g --unsafe-perm node-red
 sudo npm cache clean -f
 
-# 4. Update Node-RED
-echo "🕸️ Updating Node-RED..."
-sudo npm install -g --unsafe-perm node-red
-
-# 5. Handle Native Modules & Rebuild
+# 2. Local Rebuild (Run as current user - no sudo)
 NR_DIR="$HOME/.node-red"
 if [ -d "$NR_DIR" ]; then
-    echo "🏗️  Rebuilding native modules in $NR_DIR..."
+    echo "🏗️  Rebuilding modules in $NR_DIR..."
     cd "$NR_DIR"
+    # Remove old artifacts to force a clean node-gyp rebuild
     rm -rf node_modules package-lock.json
     npm install --unsafe-perm
-    # Final cleanup of the local npm cache
     npm cache clean --force
+else
+    echo "⚠️  Warning: $NR_DIR not found. Skipping local rebuild."
 fi
 
-# 6. Restart Services
-echo "🔄 Restarting PM2..."
+# 3. Restart PM2 (Run as current user - no sudo)
+echo "🔄 Restarting Node-RED..."
+# We try ID 1 first since you confirmed that's the Node-RED ID
 pm2 restart node-red
 
-echo -e "\n✅ Update and Cleanup Complete!"
-echo "Node: $(node -v)"
-echo "Free Space: $(df -h / | awk 'NR==2 {print $4}')"
+echo -e "\n✅ Update Complete!"
+node -v
+npm -v
