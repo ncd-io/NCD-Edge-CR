@@ -22,7 +22,7 @@ hash -r
 
 echo "🛠️ Updating npm and Node-RED binaries..."
 sudo npm install -g npm@latest
-sudo npm install -g --unsafe-perm node-red
+sudo npm install -g node-red
 sudo npm cache clean -f
 
 # 2. Local Rebuild (Run as current user - no sudo)
@@ -32,7 +32,7 @@ if [ -d "$NR_DIR" ]; then
     cd "$NR_DIR"
     # Remove old artifacts to force a clean node-gyp rebuild
     rm -rf node_modules package-lock.json
-    npm install --unsafe-perm
+    npm install
     npm cache clean --force
 else
     echo "⚠️  Warning: $NR_DIR not found. Skipping local rebuild."
@@ -44,5 +44,5 @@ echo "🔄 Restarting Node-RED..."
 pm2 restart node-red
 
 echo -e "\n✅ Update Complete!"
-node -v
 npm -v
+node-red --version
