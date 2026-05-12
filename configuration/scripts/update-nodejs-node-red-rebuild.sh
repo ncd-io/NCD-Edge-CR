@@ -15,8 +15,8 @@ trap 'failure_handler' ERR
 echo "🚀 Starting Gateway Update as user: $(whoami)"
 
 # 1. System Updates (Require sudo)
-echo "📦 Updating Node.js to v20..."
-sudo n 20
+echo "📦 Updating Node.js to v22..."
+sudo n 22
 sudo n prune
 hash -r
 

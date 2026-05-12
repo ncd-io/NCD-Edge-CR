@@ -4,7 +4,7 @@
 
 cd ~
 
-sudo npm install -g --unsafe-perm node-red@4.0.5
+sudo npm install -g --unsafe-perm node-red@4
 
 # run node-red in background to initialize ~/.node-red/package.json in order to install libraries
 node-red &
